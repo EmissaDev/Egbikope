@@ -34,14 +34,14 @@ mongoose.connect(DATABASE_URL);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // connecting routes
-// app.use(express.static(path.join(__dirname, '../../build')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res, next) => {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+});
 
 // app.use(auth);
 // app.use('/users', userRoute);
-
-// app.get('*', (req, res, next) => {
-//   res.sendFile('index.html', {root: path.join(__dirname, '../../build')});
-// });
 
 //to handle testing server crash - to be removed once project passed the review
 // app.get('/crash-test', () => {
