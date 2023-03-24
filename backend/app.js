@@ -30,29 +30,30 @@ app.use(helmet());
 app.use(limiter);
 
 mongoose.connect(DATABASE_URL);
-// {
-//   useNewUrlParser: true,
-//   useCreateIndex: true,
-//   useFindAndModify: false,
-//   useUnifiedTopology: true
-// }
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 // connecting routes
-app.use(express.static(path.join(__dirname, '../../build')));
+// app.use(express.static(path.join(__dirname, '../../build')));
+
 // app.use(auth);
 // app.use('/users', userRoute);
+
+// app.get('*', (req, res, next) => {
+//   res.sendFile('index.html', {root: path.join(__dirname, '../../build')});
+// });
+
+//to handle testing server crash - to be removed once project passed the review
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Server will crash now');
+  }, 0);
+});
 
 // errors handling
 // app.get('*', (req, res, next) => {
 //   next(new NotFoundedError(notFound));
 // });
-app.get('*', (req, res, next) => {
-  res.sendFile('index.html', {root: path.join(__dirname, '../../build')});
-});
-
 app.use(errorLogger); //enabling error logger
 app.use(errors()); //celebrate error handler
 app.use(error); //centralized error handler
