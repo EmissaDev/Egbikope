@@ -34,10 +34,9 @@ mongoose.connect(DATABASE_URL);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // connecting routes
-app.use(express.static(path.join(__dirname, 'public')));
-
+// app.use(express.static(path.join(__dirname, 'public')));
 app.get('*', (req, res, next) => {
-  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+  res.sendFile('index.html', {root: path.join(__dirname, '../frontend-build')});
 });
 
 // app.use(auth);
