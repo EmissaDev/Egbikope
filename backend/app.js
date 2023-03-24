@@ -44,11 +44,11 @@ app.use(bodyParser.json());
 // });
 
 //to handle testing server crash - to be removed once project passed the review
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Server will crash now');
-  }, 0);
-});
+// app.get('/crash-test', () => {
+//   setTimeout(() => {
+//     throw new Error('Server will crash now');
+//   }, 0);
+// });
 
 // errors handling
 // app.get('*', (req, res, next) => {
