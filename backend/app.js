@@ -15,7 +15,7 @@ const { DATABASE_URL } = require('./utils/configuration');
 const { limiter } = require('./middleware/limiter');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { login, createUser } = require('./controllers/userController');
-const { userRoute } = require('./routes');
+const { dataRoute, userRoute } = require('./routes');
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -32,9 +32,14 @@ mongoose.connect(DATABASE_URL);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', 'frontend-build')));
-// app.get('/', (req, res) => {
-//   res.send();
-// });
+
+// app.use(auth);
+app.use('/', dataRoute);
+// app.use('/', userRoute);
+app.use('/cheed', dataRoute);
+app.use('/about', dataRoute);
+app.use('/associations', dataRoute);
+app.use('/activities', dataRoute);
 
 app.get('*', (req, res, next) => {
   next(new NotFoundedError(notFound));

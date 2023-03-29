@@ -1,5 +1,6 @@
+const dataRoute = require('./cards');
 const userRoute = require('./users');
 
 module.exports = {
-  userRoute,
+  dataRoute, userRoute,
 };
