@@ -1,0 +1,79 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2% 0 5%;
+  margin: 0;
+
+  background-image: url("../../images/logos/header_banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: content-box;
+}
+
+
+.header__menus {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__text {
+  margin: 0 2vh 2vh 2vh;
+  font-family: 'Neuton', serif;
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+  color: #F8FFF8;
+}
+
+.header__language {
+  position: fixed;
+  width: auto;
+  height: auto;
+  top: 1%;
+  right: 3%;
+
+  font-family: 'Roboto Slab', 'Arial', sans-serif;
+  font-style: normal;
+  cursor: pointer;
+  border-color: #020077;
+  border-radius: 15%;
+  border-style: double;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 0;
+  }
+  .header__menus {
+    justify-content: space-between;
+  }
+
+  .header__text {
+    font-size: 2.5rem;
+  }
+
+  .header__language {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header__text {
+    margin: 2vh 8%;
+    font-size: 4rem;
+  }
+
+  .header__language {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .header__text {
+    font-size: 5rem;
+  }
+}

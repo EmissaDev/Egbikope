@@ -1,0 +1,16 @@
+.activities {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.activities__details {
+  margin-top: 2rem;
+}
+
+.eblizan__title {
+  margin-top: 1rem;
+  font-family: 'Lobster Two', cursive;
+  font-size: xxx-large;
+  font-weight: bold;
+}

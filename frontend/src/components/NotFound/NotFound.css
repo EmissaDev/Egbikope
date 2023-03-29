@@ -1,0 +1,28 @@
+.content__not-found {
+  display: flex;
+  justify-content: center;
+  background-color: #f2f4e8;
+  height: 70vh;
+  width: 100%;
+  padding: 15% 5% 0;
+  margin: 0 auto;
+
+  font-family: 'Roboto Slab';
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff0000;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .content__not-found {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .content__not-found {
+    height: 60vh;
+    font-size: 6rem;
+  }
+}
