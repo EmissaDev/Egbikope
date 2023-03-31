@@ -5,7 +5,7 @@ const validator = require('validator');
 const cardSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: false,
     minlength: 2,
     maxlength: 30,
   },
@@ -28,10 +28,6 @@ const cardSchema = new mongoose.Schema({
       }),
       message: 'You must provide a valide URL for the image',
     },
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
   },
 });
 

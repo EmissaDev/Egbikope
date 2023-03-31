@@ -4,7 +4,7 @@ import React, { useEffect, useCallback, useState} from "react";
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
-import ImagePopup from "../Gallery/ImagePopup";
+// import ImagePopup from "../Gallery/ImagePopup";
 
 import dataApi from "../../utils/ImgurApi";
 import * as auth from "../../utils/auth";
@@ -16,22 +16,20 @@ function App() {
   // const location = useLocation();
   let userLanguagePref = localStorage.getItem("language");
   const [language, setLanguage] = useState(userLanguagePref ? userLanguagePref : "English");
+  const [isFetching, setFetching] = React.useState(false);
   const [albumHome, setAlbumHome] = useState([]);
-  // const [albumAccueil, setAlbumAccueil] = React.useState([])
-  // const [albumAbout, setAlbumAbout] = React.useState([])
   const [albumCheed17, setAlbumCheed17] = React.useState([])
   const [albumCheed19, setAlbumCheed19] = React.useState([])
   const [albumCheed20, setAlbumCheed20] = React.useState([])
   const [albumCheed22, setAlbumCheed22] = React.useState([])
   const [albumCheedDon, setAlbumCheedDon] = React.useState([])
   const [albumCheedArch, setAlbumCheedArch] = React.useState([])
-  // const [titles, setTitles] = useState([]);
   const [albumEblizan, setAlbumEblizan] = React.useState([])
   const [albumProject, setAlbumProject] = React.useState([])
   const [albumSport, setAlbumSport] = React.useState([])
 
-  const [isImageExpand, setImageExpand] = useState(false);
-  const [selectedCard, setSelectedCard] = useState();
+  // const [isImageExpand, setImageExpand] = useState(false);
+  // const [selectedCard, setSelectedCard] = useState();
 
 
   function storeLanguageInLocalStorage(langs) {
@@ -73,25 +71,26 @@ function App() {
     return valuesToArray;
   }, [getAlbumImages])
 
-  function handleCardClick(card) {
-    setSelectedCard(card);
-    setImageExpand(true);
-  }
+  // function handleCardClick(card) {
+  //   setSelectedCard(card);
+  //   setImageExpand(true);
+  // }
 
-  function closeAllPopups() {
-    setImageExpand(false)
-  }
-  function handlePopupClose(evt) {
-    if(evt.target !== evt.currentTarget) return;
-    closeAllPopups();
-  }
-
+  // function closeAllPopups() {
+  //   setImageExpand(false)
+  // }
+  // function handlePopupClose(evt) {
+  //   if(evt.target !== evt.currentTarget) return;
+  //   closeAllPopups();
+  // }
 
   useEffect(() => {
-    const savedToken = localStorage.getItem('token');
+    const savedToken = localStorage.getItem("token")
     if (savedToken === null) {
       auth.authImgurAccess()
-        .then((response) => console.log(response))
+        .then(() => {
+          setFetching(true);
+        })
         .catch((err) => console.log(err));
     }
   }, [])
@@ -122,6 +121,8 @@ function App() {
         setAlbumProject(project);
         setAlbumSport(sport);
       })
+
+    setFetching(false);
   }, [getAlbums])
 
   return (
@@ -133,6 +134,7 @@ function App() {
       />
       <Main
         language={language}
+        isFetching={isFetching}
         albumHome={albumHome}
         albumCheed17={albumCheed17}
         albumCheed19={albumCheed19}
@@ -144,9 +146,9 @@ function App() {
         albumProject={albumProject}
         albumSport={albumSport}
         getAlbumsTitleAndID={getAlbumsTitleAndID}
-        handleCardClick={handleCardClick}
+        // handleCardClick={handleCardClick}
       />
-      <ImagePopup src={selectedCard} isOpen={isImageExpand} onClose={handlePopupClose} />
+      {/* <ImagePopup src={selectedCard} isOpen={isImageExpand} onClose={handlePopupClose} /> */}
       <Footer />
     </div>
   );
@@ -154,43 +156,3 @@ function App() {
 
 
 export default App;
-
-  // <Routes>
-  //   <Route exact path='/'>
-
-
-  //     <Accueil
-  //       language={language}
-  //     />
-  //   </Route>
-
-  //   <Route exact path='/about'>
-  //     <About
-  //       language={language}
-  //     />
-  //   </Route>
-
-  //   <Route exact path='/cheed'>
-  //     <CHEED
-  //     />
-  //   </Route>
-
-  //   <Route exact path='/associations'>
-  //     <Associations
-  //     />
-  //   </Route>
-
-  //   <Route exact path='/activities'>
-  //     <Activities
-  //       albumEblizan={albumEblizan}
-  //       albumProject={albumProject}
-  //       albumSport={albumSport}
-  //       language={language}
-  //     />
-  //   </Route>
-
-  //   {/* <Route path="*">
-  //     <Redirect to='/' />
-  //   </Route> */}
-  //   <Route path="*" element={ <NotFound language={language} /> } />
-  // </Routes>

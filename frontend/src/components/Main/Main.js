@@ -22,6 +22,7 @@ function Main(props) {
         <Route path="/" element={
           <Accueil
             language={props.language}
+            isFetching={props.isFetching}
             album={props.albumHome}
             getAlbumsTitleAndID={props.getAlbumsTitleAndID}
           /> }
@@ -34,6 +35,7 @@ function Main(props) {
         <Route path="activities" element={
           <Activities
             language={props.language}
+            isFetching={props.isFetching}
             albumEblizan={props.albumEblizan}
             albumProject={props.albumProject}
             albumSport={props.albumSport}
@@ -43,6 +45,7 @@ function Main(props) {
         <Route path="cheed" element={
           <CHEED
             language={props.language}
+            isFetching={props.isFetching}
             albumCheed17={props.albumCheed17}
             albumCheed19={props.albumCheed19}
             albumCheed20={props.albumCheed20}

@@ -13,7 +13,7 @@ class ImgurApi {
    * Get all the albums associated with the account. Must be logged in as the user to see secret and hidden albums.
    * https://api.imgur.com/3/account/{{username}}/albums/{{page}}
    */
-  async retrieveAlbums(token) { // this only retrive the first album
+  async retrieveAlbums(token) { // this only an album
     var options = {
       method: 'GET',
       headers: {

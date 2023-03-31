@@ -24,7 +24,7 @@ app.use(cors()); //enable all cors requests
 app.options('*', cors()); //enable pre-flightimg
 app.use(requestLogger);
 app.use(express.json());
-app.use(helmet());
+//app.use(helmet());
 app.use(limiter);
 
 mongoose.connect(DATABASE_URL);
@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', 'frontend-build')));
 
-// app.use(auth);
+//app.use(auth);
 app.use('/', dataRoute);
 // app.use('/', userRoute);
 app.use('/cheed', dataRoute);

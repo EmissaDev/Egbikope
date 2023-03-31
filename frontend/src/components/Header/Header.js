@@ -18,7 +18,12 @@ function Header(props) {
         onChange={e => props.handleSetLanguage(e.target.value)}
         className="header__language"
       >
-        props.language === 'fr'? <option value="fr">FR</option> : <option value="en">EN</option>
+        {
+          props.language === 'fr'? <option value="en">EN</option> : <option value="fr">FR</option>
+        }
+        {/* {
+          props.language === 'fr'? <option value="fr">FR</option> : <option value="en">EN</option>
+        } */}
       </select>
       <div className="header__menus">
         <Logo alt="header" />

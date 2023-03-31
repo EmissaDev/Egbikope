@@ -2,10 +2,10 @@ import React from "react";
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
 
-// import { homePageCards, homePageCardsWebP } from "../../utils/Cards";
+import Preloader from "../Preloader/Preloader";
 
+import '../Carousel/Carousel.css';
 import './Accueil.css'
-import '../Carousel/Carousel.css'
 
 function Accueil(props) {
   const commons_french = require('../../translations/common_text_fr.json');
@@ -28,7 +28,8 @@ function Accueil(props) {
         </p>
       </div>
       {
-        <Slider autoplay="1000">
+        props.isFecthing ? <Preloader />
+        : <Slider autoplay="1000">
           {
             props.album.map((item, index) =>
               <div
