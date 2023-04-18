@@ -41,12 +41,8 @@ app.use(express.static(path.join(__dirname, '..', 'frontend-build')));
 // app.use('/associations', dataRoute);
 // app.use('/activities', dataRoute);
 
-// app.get('*', (req, res, next) => {
-//   next(new NotFoundedError(notFound));
-// });
-
 app.get('*', (req, res, next) => {
-  res.sendFile('index.html', {root: path.join(__dirname, '../../frontend-build')});
+  res.sendFile('index.html', {root: path.join(__dirname, '../frontend-build')});
 });
 
 //to handle testing server crash - to be removed once project passed the review
