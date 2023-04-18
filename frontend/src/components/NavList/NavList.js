@@ -47,7 +47,7 @@ function NavList(props) {
             </NavLink>
           </li>
           <li className="navigation__link">
-            <NavLink to="about" onClick={()=> smallDevice ? closeMobileNav : undefined }
+            <NavLink to="/about" onClick={()=> smallDevice ? closeMobileNav : undefined }
               style={({ isActive }) =>
                   isActive ? activeLink : linkColor
                 }
@@ -56,7 +56,7 @@ function NavList(props) {
               </NavLink>
           </li>
           <li className="navigation__link">
-            <NavLink to="cheed" onClick={() => smallDevice ? closeMobileNav : undefined }
+            <NavLink to="/cheed" onClick={() => smallDevice ? closeMobileNav : undefined }
               style={({ isActive }) =>
                 isActive ? activeLink : linkColor
               }
@@ -65,7 +65,7 @@ function NavList(props) {
             </NavLink>
           </li>
           <li className="navigation__link">
-            <NavLink to="associations" onClick={() => smallDevice ? closeMobileNav : undefined }
+            <NavLink to="/associations" onClick={() => smallDevice ? closeMobileNav : undefined }
               style={({ isActive }) =>
                 isActive ? activeLink : linkColor
               }
@@ -74,7 +74,7 @@ function NavList(props) {
             </NavLink>
           </li>
           <li className="navigation__link">
-            <NavLink to="activities" onClick={() => smallDevice ? closeMobileNav : undefined }
+            <NavLink to="/activities" onClick={() => smallDevice ? closeMobileNav : undefined }
               style={({ isActive }) =>
                 isActive ? activeLink : linkColor
               }

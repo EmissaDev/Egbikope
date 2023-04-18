@@ -34,15 +34,19 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', 'frontend-build')));
 
 //app.use(auth);
-app.use('/', dataRoute);
+// app.use('/', dataRoute);
 // app.use('/', userRoute);
-app.use('/cheed', dataRoute);
-app.use('/about', dataRoute);
-app.use('/associations', dataRoute);
-app.use('/activities', dataRoute);
+// app.use('/cheed', dataRoute);
+// app.use('/about', dataRoute);
+// app.use('/associations', dataRoute);
+// app.use('/activities', dataRoute);
+
+// app.get('*', (req, res, next) => {
+//   next(new NotFoundedError(notFound));
+// });
 
 app.get('*', (req, res, next) => {
-  next(new NotFoundedError(notFound));
+  res.sendFile('index.html', {root: path.join(__dirname, '../../frontend-build')});
 });
 
 //to handle testing server crash - to be removed once project passed the review
