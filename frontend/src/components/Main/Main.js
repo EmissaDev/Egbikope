@@ -27,12 +27,12 @@ function Main(props) {
             getAlbumsTitleAndID={props.getAlbumsTitleAndID}
           /> }
         />
-        <Route path="about" element={
+        <Route path="/about" element={
           <About
             language={props.language}
           /> }
         />
-        <Route path="activities" element={
+        <Route path="/activities" element={
           <Activities
             language={props.language}
             isFetching={props.isFetching}
@@ -42,7 +42,7 @@ function Main(props) {
             getAlbumsTitleAndID={props.getAlbumsTitleAndID}
           />}
         />
-        <Route path="cheed" element={
+        <Route path="/cheed" element={
           <CHEED
             language={props.language}
             isFetching={props.isFetching}
@@ -55,7 +55,7 @@ function Main(props) {
             getAlbumsTitleAndID={props.getAlbumsTitleAndID}
           /> }
         />
-        <Route path="associations" element={
+        <Route path="/associations" element={
           <Associations
             language={props.language}
           /> }

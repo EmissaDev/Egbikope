@@ -19,7 +19,7 @@ function NavList(props) {
     const iconsPosition = ( isMobileNav ? '2%' : '10%' )
     const smScreenStyle = ( smallDevice ? { flexDirection: 'column' } : "" )
     const linkColor = ( smallDevice ? { color: '#029352'} : { color: '#FFFFFF'} )
-    const userLang = props.language === 'fr';
+    const userLang = props.language === "french";
 
 
   let activeLink = { color: '#020077' }

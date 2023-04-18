@@ -2,7 +2,7 @@
 function About(props) {
   const commons_french = require('../../translations/common_text_fr.json');
   const commons_english = require('../../translations/common_text_en.json');
-  const userLang = props.language === 'fr';
+  const userLang = props.language === "french";
 
   return (
     <section>

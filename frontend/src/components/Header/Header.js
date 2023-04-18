@@ -7,6 +7,7 @@ import './Header.css';
 function Header(props) {
   const commons_french = require('../../translations/common_text_fr.json');
   const commons_english = require('../../translations/common_text_en.json');
+  const userLang = props.language;
 
 
   return (
@@ -14,23 +15,26 @@ function Header(props) {
       className="header"
     >
       <select
-        value={props.language}
+        value={userLang}
         onChange={e => props.handleSetLanguage(e.target.value)}
         className="header__language"
       >
-        {
-          props.language === 'fr'? <option value="en">EN</option> : <option value="fr">FR</option>
-        }
-        {/* {
-          props.language === 'fr'? <option value="fr">FR</option> : <option value="en">EN</option>
+        {/* { props.language === "french"
+          ? <option value="french">FR</option>
+          : <option value="english">EN</option>
         } */}
+        <option value="french">FR</option>
+        <option value="english">EN</option>
       </select>
       <div className="header__menus">
         <Logo alt="header" />
         <NavList language={props.language} />
       </div>
       <h1 className='header__text'>
-        {props.language === 'fr'? commons_french.header.main_text : commons_english.header.main_text }
+        { userLang === "french"
+          ? commons_french.header.main_text
+          : commons_english.header.main_text
+        }
         {/* Bienvenue à Egbikope, la communauté amicale et accueillante d'à côté */}
       </h1>
     </header>

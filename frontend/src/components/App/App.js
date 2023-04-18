@@ -14,8 +14,7 @@ import './App.css';
 
 function App() {
   // const location = useLocation();
-  let userLanguagePref = localStorage.getItem("language");
-  const [language, setLanguage] = useState(userLanguagePref ? userLanguagePref : "English");
+  const [language, setLanguage] = useState("french");
   const [isFetching, setFetching] = React.useState(false);
   const [albumHome, setAlbumHome] = useState([]);
   const [albumCheed17, setAlbumCheed17] = React.useState([])
@@ -31,10 +30,6 @@ function App() {
   // const [isImageExpand, setImageExpand] = useState(false);
   // const [selectedCard, setSelectedCard] = useState();
 
-
-  function storeLanguageInLocalStorage(langs) {
-    localStorage.setItem("language", langs);
-  }
 
   function getAlbumsTitleAndID(data) {
     const result = new Map();
@@ -127,9 +122,11 @@ function App() {
 
   return (
     <div className="app_content">
-      <Header language={language} handleSetLanguage={lang => {
+      <Header
+        language={language}
+        handleSetLanguage={(lang) => {
           setLanguage(lang);
-          storeLanguageInLocalStorage(lang);
+          // localStorage.setItem("language", lang)
         }}
       />
       <Main

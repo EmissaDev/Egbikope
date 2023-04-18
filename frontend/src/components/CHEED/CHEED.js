@@ -9,7 +9,7 @@ function CHEED(props) {
   const [displayGallery, setGalleryDisplay] = React.useState(false);
   const commons_french = require('../../translations/common_text_fr.json');
   const commons_english = require('../../translations/common_text_en.json');
-  const userLang = props.language === 'fr';
+  const userLang = props.language === "french";
 
   function handleCardClick(name) {
     setGalleryDisplay(true);
